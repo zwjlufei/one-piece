@@ -1,0 +1,144 @@
+<style lang="less">
+    .font-34{
+        font-size: 34rpx;
+    }
+    .font-32{
+        font-size: 32rpx;
+    }
+    .font-30{
+        font-size: 30rpx;
+    }
+    .font-28{
+        font-size: 28rpx;
+    }
+    .font-26{
+        font-size: 26rpx;
+    }
+    .font-24{
+        font-size: 24rpx;
+    }
+    .font-22{
+        font-size: 22rpx;
+    }
+    .gray-font-color{
+        color: #818181;
+    }
+    .flex-row-wrap{
+        display: flex;
+        flex-direction: row;
+    }
+    .flex-column-wrap{
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-space-between{
+        justify-content: space-between;
+    }
+    .flex-space-around{
+        justify-content: space-around;
+    }
+    .flex-space-center{
+        justify-content: center;
+    }
+    .flex-align-center{
+        align-items: center;
+    }
+    .wrap-flex{
+        flex-wrap: wrap;
+    }
+    .text-gradient {
+        display: inline-block;
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ff6991), to(#ffa189));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+import { setStore } from 'wepy-redux'
+import configStore from './store'
+
+const store = configStore()
+setStore(store)
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index',
+      'pages/waiter',
+      'pages/my'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: '有福妈妈',
+      navigationBarTextStyle: 'black'
+    },
+    'tabBar': {
+        'color':'#9da2a2',
+        'selectedColor': '#ff7683',
+        'borderStyle': 'black',
+        'backgroundColor': '#fff',
+        'list':[{
+            'selectedIconPath': 'img/index_s.png',
+            'iconPath': 'img/index_n.png',
+            'pagePath': 'pages/index',
+            'text': '首页'
+        },{
+            'selectedIconPath': 'img/waiter_s.png',
+            'iconPath': 'img/waiter_n.png',
+            'pagePath': 'pages/waiter',
+            'text': '月嫂'
+        },{
+            'selectedIconPath': 'img/my_s.png',
+            'iconPath': 'img/my_n.png',
+            'pagePath': 'pages/my',
+            'text': '我的'
+        }]
+    }
+  }
+
+  globalData = {
+    userInfo: null
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+  }
+
+  onLaunch() {
+    this.testAsync()
+  }
+
+  sleep (s) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('promise resolved')
+      }, s * 1000)
+    })
+  }
+
+  async testAsync () {
+    const data = await this.sleep(3)
+    console.log(data)
+  }
+
+  getUserInfo(cb) {
+    const that = this
+    if (this.globalData.userInfo) {
+      return this.globalData.userInfo
+    }
+    wepy.getUserInfo({
+      success (res) {
+        that.globalData.userInfo = res.userInfo
+        cb && cb(res.userInfo)
+      }
+    })
+  }
+}
+</script>

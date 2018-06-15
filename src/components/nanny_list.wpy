@@ -1,0 +1,55 @@
+<style lang="less">
+    .nanny-scroll-item{
+        width: 215rpx;
+        height: 310rpx;
+        border-radius: 15rpx;
+        box-shadow: -3px 0px 12px 5px #f7f7f7;
+        display: inline-block;
+        margin: 20rpx 36rpx 20rpx 0;
+        &:last-child{
+            margin-right: 60rpx;
+        }
+        &:first-child{
+            margin-left: 60rpx;
+        }
+        .nanny-item-pic{
+            width: 135rpx;
+            height: 135rpx;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+    }
+</style>
+<template>
+    <view>
+        <view class="section">
+            <scroll-view scroll-x style="width: 100%">
+                <repeat for="{{list}}" key="index" index="index" item="item">
+                    <view class="nanny-scroll-item">
+                        <image class="nanny-item-pic" src="http://cdn.ayi800.com/image/1aedf6b47bda6cccda6602c4fd2de4b5.jpg"></image>
+                    </view>
+                </repeat>
+            </scroll-view>
+        </view>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy'
+
+    export default class List extends wepy.component {
+        data = {
+            list:[1,2,3]
+        }
+
+        events = {
+
+        }
+
+        methods = {
+
+        }
+
+        onLoad () {
+        }
+    }
+</script>

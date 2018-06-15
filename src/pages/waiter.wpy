@@ -1,0 +1,214 @@
+<style lang="less">
+    .waiter-info-wrap{
+        padding:50rpx 60rpx 30rpx;
+        .waiter-head-img{
+            width: 172rpx;
+            height: 172rpx;
+            margin-right: 25rpx;
+        }
+    }
+    .mb-30{
+        margin-bottom: 30rpx;
+    }
+    .interval{
+        width: 100%;
+        height: 10rpx;
+        background: #fff5f9;
+    }
+    .safe-pic-wrap{
+        padding:45rpx 60rpx 30rpx;
+        .safe-pic{
+            width: 106rpx;
+            height: 84rpx;
+            margin-bottom: 20rpx;
+        }
+    }
+    .box-padding{
+        padding:30rpx 60rpx;
+    }
+    .scroll-pic-wrap{
+        padding-bottom: 30rpx;
+        .work-pic{
+            width: 230rpx;
+            height: 210rpx;
+            border-radius: 20rpx;
+            margin-right: 36rpx;
+            &:last-child{
+                margin-right: 60rpx;
+            }
+            &:first-child{
+                margin-left: 60rpx;
+            }
+        }
+    }
+    .tag-item{
+        padding: 2rpx 13rpx;
+        border: 1rpx solid #ff9d8e;
+        border-radius: 10rpx;
+        margin-right: 30rpx;
+        margin-bottom: 20rpx;
+    }
+    .mt-35{
+        margin-top: 35rpx;
+    }
+    .mt-47{
+        margin-top: 47rpx;
+    }
+    .user-img{
+        width:78rpx;
+        height: 78rpx;
+        border-radius: 50%;
+    }
+    .start-img{
+        width: 20rpx;
+        height: 20rpx;
+        display: inline-block;
+        background: url("http://cdn.ayi800.com/wx_wap/start.png") no-repeat 0 0;
+        background-size: 100%;
+    }
+    .mr-30{
+        margin-right: 30rpx;
+    }
+    .review-item{
+        padding: 25rpx 0;
+        .review-pic-box{
+            padding-top: 15rpx;
+            .review-pic{
+                width: 147rpx;
+                height: 117rpx;
+                border-radius: 10rpx;
+                margin-right: 30rpx;
+            }
+        }
+    }
+    .more-btn{
+        width: 138rpx;
+        height: 40rpx;
+        border: 1rpx solid #b5b5b5;
+        border-radius: 10rpx;
+        color: #b5b5b5;
+        text-align: center;
+        line-height: 40rpx;
+        margin: 0 auto;
+    }
+</style>
+<template>
+    <view class="waiter-info-wrap">
+        <view class="flex-row-wrap mb-30">
+            <image class="waiter-head-img" src="http://cdn.ayi800.com/image/1aedf6b47bda6cccda6602c4fd2de4b5.jpg"></image>
+            <view class="flex-column-wrap flex-space-between">
+                <view class="font-32">马冬梅</view>
+                <view class="font-28">12800元／26天</view>
+                <view class="font-28">39岁  来自山东</view>
+            </view>
+        </view>
+        <view class="font-26">自我简介：我叫马冬梅，对照顾宝妈和宝宝特别有很多经验，我很善良，我很开朗，我很</view>
+    </view>
+    <view class="interval"></view>
+    <view class="safe-pic-wrap flex-row-wrap flex-space-between font-24">
+        <view class="flex-column-wrap flex-align-center">
+            <image src="http://cdn.ayi800.com/waple_nannay_detail/waple_bz1.png" class="safe-pic"></image>
+            <view>实名认证</view>
+        </view>
+        <view  class="flex-column-wrap flex-align-center">
+            <image src="http://cdn.ayi800.com/waple_nannay_detail/waple_bz2.png" class="safe-pic"></image>
+            <view>母婴护理证</view>
+        </view>
+        <view  class="flex-column-wrap flex-align-center">
+            <image src="http://cdn.ayi800.com/waple_nannay_detail/waple_bz3.png" class="safe-pic"></image>
+            <view>慈铭体检</view>
+        </view>
+        <view  class="flex-column-wrap flex-align-center">
+            <image src="http://cdn.ayi800.com/waple_nannay_detail/waple_bz4.png" class="safe-pic"></image>
+            <view>无犯罪证明</view>
+        </view>
+    </view>
+    <view class="interval"></view>
+    <view>
+        <view class="font-34 box-padding">工作照片</view>
+        <view class="section section_gap scroll-pic-wrap">
+            <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex;" >
+                <repeat for="{{list}}" key="index" index="index" item="item">
+                    <image class='work-pic'  src="http://cdn.ayi800.com/image/ac307e9af3dd96a480f74fae1548d418.jpg?imageView2/1/w/150/h/150" mode='aspectFill'></image>
+                </repeat>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="interval"></view>
+    <view class="box-padding" style="padding-bottom: 20rpx">
+        <view class="font-34">印象标签</view>
+        <view class="font-22 mt-35">
+            <div class="tag-item text-gradient">催乳好 1</div>
+            <div class="tag-item text-gradient">月子餐棒 4</div>
+            <div class="tag-item text-gradient">干净 2</div>
+            <div class="tag-item text-gradient">儿歌歌神 4</div>
+            <div class="tag-item text-gradient">月子餐很棒 4</div>
+        </view>
+    </view>
+    <view class="interval"></view>
+    <view class="box-padding">
+        <view class="font-34">客户点评</view>
+        <repeat for="{{arr}}" key="index" index="index" item="item">
+            <view class="review-item">
+                <view class="flex-row-wrap flex-space-between">
+                    <view class="flex-row-wrap">
+                        <image class="user-img mr-30" src="http://wx.qlogo.cn/mmopen/OU2rqvx645vv4teCh3raZ2eT13lmAtzZ6ypic2OzBdNYWo4Xk2VEgc13xDFuBq69QNEPrIL6fqqNv6pubMJJ2qzf5zRQMqwnia/0"></image>
+                        <view>
+                            <view class="font-30">杨珍珠</view>
+                            <repeat for="{{list}}" key="index" index="index" item="item">
+                                <!--<image class="start-img" src="http://cdn.ayi800.com/wx_wap/start.png"></image>-->
+                                <view class="start-img"></view>
+                            </repeat>
+                        </view>
+                    </view>
+                    <view class="font-24 gray-font-color mt-47">2017-07-09</view>
+                </view>
+                <view class="font-28">王红梅阿姨超级贴心，厨艺也非常的了得，做什么都很好吃，好吃到根本停不下来，阿姨...</view>
+                <view class="review-pic-box">
+                    <image class="review-pic" mode='aspectFill' src="http://cdn.ayi800.com/ayi800_1524878029yszl_107860922922fP4xk4u3.jpg" alt=""></image>
+                    <image class="review-pic" mode='aspectFill' src="http://cdn.ayi800.com/ayi800_1524878029yszl_107860922922fP4xk4u3.jpg" alt=""></image>
+                    <image class="review-pic" mode='aspectFill' src="http://cdn.ayi800.com/ayi800_1524878029yszl_107860922922fP4xk4u3.jpg" alt=""></image>
+                    <image class="review-pic" mode='aspectFill' src="http://cdn.ayi800.com/ayi800_1524878029yszl_107860922922fP4xk4u3.jpg" alt=""></image>
+                    <image class="review-pic" mode='aspectFill' src="http://cdn.ayi800.com/ayi800_1524878029yszl_107860922922fP4xk4u3.jpg" alt=""></image>
+                    <image class="review-pic" mode='aspectFill' src="http://cdn.ayi800.com/ayi800_1524878029yszl_107860922922fP4xk4u3.jpg" alt=""></image>
+                </view>
+            </view>
+        </repeat>
+        <view class="more-btn font-22">展开更多</view>
+    </view>
+    <view class="interval"></view>
+    <view>
+        <view class="font-34 box-padding">猜你喜欢</view>
+        <list></list>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import List from '../components/nanny_list'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '月嫂列表页'
+    }
+    components = {
+        list:List
+    }
+    data = {
+        list:[1,2,3,4,5],
+        arr:[1,2,3]
+    }
+
+    computed = {
+    }
+
+    methods = {
+    }
+
+    events = {
+    }
+
+    onLoad() {
+    }
+  }
+</script>
